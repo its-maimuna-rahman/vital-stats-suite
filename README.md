@@ -1,4 +1,5 @@
-# Vital Stats Suite (A Demography Bashboard)
+# Vital Stats Suite   
+**A Demography Bashboard**
 
 A demographic intelligence suite and policy engine. It ingests census or vital-registration data, runs data-quality audits (Whipple's Index, Myers' Index, UN age-sex score, PEC coverage), computes a battery of demographic measures (about **70 computed straight from a dataset**, plus calculators for the rest of the class revision sheet), rates the results against international benchmarks (UN/WHO/CDC), projects future population trajectories, and drafts policy recommendations.
 
