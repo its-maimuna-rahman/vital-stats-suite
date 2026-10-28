@@ -143,6 +143,12 @@ vital-stats-suite/
 │   ├── bbs_pec_2022_totals.csv, bbs_svrs_stable_population.csv, bbs_un_projection_assumptions.csv
 │   ├── time_series_1970_2024.csv
 │   └── census_2011.json, census_2022.json, dirty_census.json
+|
+├── screenshots/                # screenshots of the dashboard
+│   ├── composition.png
+│   ├── life-table.png
+│   └── overview.png
+|
 └── tests/                      # Automated tests
     ├── test_sex_composition.py, test_age_dependency.py, test_fertility.py, test_mortality.py
     ├── test_quality.py, test_new_sections.py, test_pipeline.py, test_inference.py
