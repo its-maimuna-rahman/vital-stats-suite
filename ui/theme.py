@@ -46,7 +46,7 @@ CSS = """
 html, body, .stApp, [class*="css"]{ font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif !important; color:var(--vs-text); }
 .stApp{ background:linear-gradient(180deg,#FAF5EF 0%,#F6EEE7 100%) !important; }
 header[data-testid="stHeader"]{ background:transparent !important; }
-.block-container{ max-width:1180px; padding-top:2.2rem; padding-bottom:4rem; }
+.block-container{ max-width:90%; padding-top:2.2rem; padding-bottom:4rem; }
 
 /* headings */
 h1,h2,h3,h4{ font-family:'Inter',system-ui,sans-serif !important; color:var(--vs-text) !important; font-weight:400 !important; letter-spacing:-.01em; }
@@ -100,6 +100,9 @@ div[data-testid="stTabs"] > div:first-child, div[data-testid="stTabs"] [role="ta
 
 /* expanders */
 div[data-testid="stExpander"]{ border-radius:18px !important; border:1px solid var(--vs-line) !important; background:var(--vs-card) !important; box-shadow:none !important; }
+[class*="st-key-vs_greenbar"] div[data-testid="stExpander"]{ overflow:hidden; }
+[class*="st-key-vs_greenbar"] div[data-testid="stExpander"] summary, [class*="st-key-vs_greenbar"] div[data-testid="stExpander"] summary:hover{ background:var(--vs-sage) !important; color:#fff !important; }
+[class*="st-key-vs_greenbar"] div[data-testid="stExpander"] summary *{ color:#fff !important; fill:#fff !important; }
 
 /* sidebar */
 section[data-testid="stSidebar"]{ background:#F3ECE4 !important; border-right:1px solid var(--vs-line); }
@@ -116,7 +119,7 @@ div[data-testid="stDataFrame"]{ border-radius:18px; overflow:hidden; }
 .vs-hero .vs-sub{ margin-top:.5rem; letter-spacing:.32em; font-size:.72rem; color:var(--vs-muted); text-transform:uppercase; }
 .vs-label{ font-size:1.4rem; letter-spacing:.08em; text-transform:uppercase; color:var(--vs-text); font-weight:600; margin:2.2rem 0 1rem; line-height:1.25; }
 .vs-label b{ color:var(--vs-sage); font-weight:700; margin-right:.6rem; }
-.vs-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px; align-items:stretch; }
+.vs-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; align-items:stretch; }
 .vs-mcard{ background:var(--vs-card); border-radius:22px; box-shadow:var(--vs-shadow); border:1px solid rgba(255,255,255,.85);
   padding:18px 20px 18px; display:flex; flex-direction:column; gap:6px; min-height:230px; min-width:0; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
 .vs-mcard:hover{ transform:translateY(-3px); box-shadow:0 16px 36px rgba(95,116,100,.18), 0 1px 0 rgba(255,255,255,.9) inset; border-color:var(--vs-moss); }

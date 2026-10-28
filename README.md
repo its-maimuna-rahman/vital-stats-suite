@@ -6,6 +6,10 @@ Every measure card shows its value, unit, benchmark status, a **LaTeX formula**,
 
 ---
 
+<img src="screenshots/overview.png" width="32%"> <img src="screenshots/composition.png" width="32%"> <img src="screenshots/life-table.png" width="32%">
+
+---
+
 ## ⚡ Quickstart
 
 You need **Python 3.9 or newer**. Run everything from the project's root folder (the one that contains `app.py` and `requirements.txt`).

@@ -99,15 +99,17 @@ with st.sidebar:
                 st.info("Upload a second file to compare.")
 
     st.divider()
-    with st.expander("CSV templates"):
-        st.download_button("Age-sex distribution", generate_sample_age_distribution_csv(), "population_age_sex.csv", "text/csv", key="t1")
-        st.download_button("Key indicators", generate_sample_summary_csv(), "population_indicators.csv", "text/csv", key="t2")
-        for lbl, key, fn in [("Fertility schedule", "S3_FERTILITY", "fertility_age.csv"), ("Mortality schedule", "S4_MORTALITY", "mortality_age_sex.csv"),
-                             ("Marital status", "S6_NUPTIALITY", "marital_status.csv"), ("Migration totals", "S7_MIGRATION", "migration_totals.csv"),
-                             ("Projection assumptions", "S11_PROJECTION", "projection_assumptions.csv")]:
-            st.download_button(lbl, get_template_csv(key), fn, "text/csv", key=f"tpl_{key}")
-    with st.expander("Assistant settings"):
-        gemini_key = st.text_input("Gemini API key (optional)", type="password", help="Used only to word the explanations of missing data. Without it, built-in text is used.")
+    with st.container(key="vs_greenbar_templates"):
+        with st.expander("CSV templates"):
+            st.download_button("Age-sex distribution", generate_sample_age_distribution_csv(), "population_age_sex.csv", "text/csv", key="t1")
+            st.download_button("Key indicators", generate_sample_summary_csv(), "population_indicators.csv", "text/csv", key="t2")
+            for lbl, key, fn in [("Fertility schedule", "S3_FERTILITY", "fertility_age.csv"), ("Mortality schedule", "S4_MORTALITY", "mortality_age_sex.csv"),
+                                 ("Marital status", "S6_NUPTIALITY", "marital_status.csv"), ("Migration totals", "S7_MIGRATION", "migration_totals.csv"),
+                                 ("Projection assumptions", "S11_PROJECTION", "projection_assumptions.csv")]:
+                st.download_button(lbl, get_template_csv(key), fn, "text/csv", key=f"tpl_{key}")
+    with st.container(key="vs_greenbar_assistant"):
+        with st.expander("Assistant settings"):
+            gemini_key = st.text_input("Gemini API key (optional)", type="password", help="Used only to word the explanations of missing data. Without it, built-in text is used.")
 
 if primary is None:
     page_header("Vital Stats Suite", "Demographic diagnostics and policy projection")
@@ -254,11 +256,10 @@ with tab1:
                 st.info(f"No {bname.lower()} measures could be computed from this dataset.")
                 continue
             measure_grid(ms)
-            with st.expander("Benchmark gauges"):
-                for m in ms:
-                    i = m.interpretation or {}
-                    render_calm_gauge(m.name, m.raw_value, m.formatted_value, m.unit, i.get("status", "MODERATE"), i.get("label", "Reference range"),
-                                      i.get("gauge_min", 0.0), i.get("gauge_max", 100.0), i.get("source", "Demographic standard"), i.get("is_heuristic", False))
+            for m in ms:
+                i = m.interpretation or {}
+                render_calm_gauge(m.name, m.raw_value, m.formatted_value, m.unit, i.get("status", "MODERATE"), i.get("label", "Reference range"),
+                                  i.get("gauge_min", 0.0), i.get("gauge_max", 100.0), i.get("source", "Demographic standard"), i.get("is_heuristic", False))
             interpretations(f"{bname}: plain-language interpretation", ms)
 
     label("Export", 6)
@@ -319,9 +320,10 @@ with tab2:
         st.markdown(proj.narrative_policy_brief)
         st.caption(f"Current phase: {proj.current_phase}")
     show_plot(create_trajectory_chart(proj.combined_df, proj.dividend_start_year, proj.dividend_end_year), key="m2_chart")
-    with st.expander("Model assumptions"):
-        for s in proj.assumptions_summary:
-            st.markdown(f"- {s}")
+    with st.container(key="vs_greenbar_model"):
+        with st.expander("Model assumptions"):
+            for s in proj.assumptions_summary:
+                st.markdown(f"- {s}")
     label("Policy flags", 2)
     for f in proj.policy_flags:
         with st.container(border=True):
