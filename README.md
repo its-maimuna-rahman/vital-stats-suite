@@ -134,6 +134,7 @@ vital-stats-suite/
 │   ├── data_sources.py         # Shared upload / template / bundled-dataset sidebar
 │   ├── calculators.py          # Calculator panels for input-driven measures
 │   └── components.py           # Pyramid, gauges, trajectory and schedule charts
+|
 ├── reports/
 │   ├── pdf_export.py           # Detailed PDF, short executive brief, single-section PDF
 │   └── html_export.py          # Standalone offline HTML dashboard and section reports
