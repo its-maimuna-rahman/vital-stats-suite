@@ -92,6 +92,7 @@ vital-stats-suite/
 ├── ENGINE.md                   # Formula and citation manual (shown in the Reference tab)
 ├── DATA.md                     # Data sources and provenance
 ├── .streamlit/config.toml      # Theme colours for native Streamlit widgets
+|
 ├── engine/                     # Core demographic calculation engine
 │   ├── base.py                 # Data models (DemographicDataset, DemographicMeasureResult), standard populations
 │   ├── registry.py             # Measure catalogue: names, units, formulas, plain-language interpretations
@@ -115,6 +116,7 @@ vital-stats-suite/
 │   ├── schemas.py              # CSV schemas and downloadable templates
 │   ├── missing_assistant.py    # Missing-data explanations (built-in + optional Gemini)
 │   └── pipeline.py             # Orchestrator and two-dataset comparison
+|
 ├── pages/                      # One page per syllabus section
 │   ├── 1_Composition_and_Growth.py
 │   ├── 2_Data_Quality.py
@@ -126,6 +128,7 @@ vital-stats-suite/
 │   ├── 8_Graduation.py
 │   ├── 9_Stable_Population.py
 │   └── 10_Projections.py
+|
 ├── ui/                         # Visual layer
 │   ├── theme.py                # Calm Kit design system: CSS, measure cards, pills, grids
 │   ├── data_sources.py         # Shared upload / template / bundled-dataset sidebar
@@ -134,7 +137,9 @@ vital-stats-suite/
 ├── reports/
 │   ├── pdf_export.py           # Detailed PDF, short executive brief, single-section PDF
 │   └── html_export.py          # Standalone offline HTML dashboard and section reports
+|
 ├── docs/                       # METHODS.md, CSV_SCHEMAS.md, ENGINE.md, DATA.md, HISTORY.md
+|
 ├── sample_data/                # Bundled datasets and the generator that creates them
 │   ├── generate_samples.py     # Deterministic dataset generator
 │   ├── bbs_census_2022_age_sex.csv, bbs_census_2011_age_sex.csv, bbs_census_2022_single_year.csv
